@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { SearchManufacturer } from "./SearchManufacturer";
+import SearchManufacturer from "./SearchManufacturer";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -28,25 +28,32 @@ const SearchBar = () => {
       return alert("Please fill in at least one field");
     }
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    // This does not work
   };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
-    const searchParams = new URLSearchParams(window.location.search)
+    // Create a new URLSearchParams object using the current URL Search Parameters
+    const searchParams = new URLSearchParams(window.location.search);
 
-    if(model) {
-      searchParams.set('model', model)
+    // Update or delete the "model" search parameter based on the "model" value
+    if (model) {
+      searchParams.set("model", model);
     } else {
-      searchParams.delete('model')
+      searchParams.delete("model");
     }
 
-    if(manufacturer) {
-      searchParams.set('manufacturer', manufacturer)
+    // Update or delete the "manufacturer" search parameter based on the "manufacturer" value
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
     } else {
-      searchParams.delete('manufacturer')
+      searchParams.delete("manufacturer");
     }
 
-    const newPathname = `${window.location.pathname}?${searchParams.toString()}`
-    router.push(newPathname)
+    // Generate the new PathName with the updated search parameters
+    const newPathname = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
+    router.push(newPathname);
   };
 
   return (
