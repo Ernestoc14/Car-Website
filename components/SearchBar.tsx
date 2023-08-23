@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { SearchManufacturer } from "./";
+import { SearchManufacturer } from "./SearchManufacturer";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
