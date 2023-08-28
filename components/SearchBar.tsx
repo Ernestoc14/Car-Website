@@ -29,6 +29,10 @@ const SearchBar = () => {
     }
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
     // This does not work
+    // router.push({
+    //   pathname: "/",
+    //   query: { model: model.toLowerCase(), manufacturer: manufacturer.toLowerCase() },
+    // });
   };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
