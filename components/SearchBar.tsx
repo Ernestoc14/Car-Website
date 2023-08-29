@@ -24,7 +24,7 @@ const SearchBar = () => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (manufacturer === "" && model === "") {
+    if (manufacturer.trim() === "" && model.trim() === "") {
       return alert("Please fill in at least one field");
     }
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
@@ -54,9 +54,7 @@ const SearchBar = () => {
     }
 
     // Generate the new PathName with the updated search parameters
-    const newPathname = `${
-      window.location.pathname
-    }?${searchParams.toString()}`;
+    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
     router.push(newPathname);
   };
 
