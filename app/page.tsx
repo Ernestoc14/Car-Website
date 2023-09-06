@@ -96,7 +96,7 @@ export default function Home() {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Opps no Results</h2>
-            <p>{allCars?.message}</p>
+            <p>{allCars}</p>
           </div>
         )}
       </div>
